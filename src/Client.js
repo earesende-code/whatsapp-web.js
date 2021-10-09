@@ -71,7 +71,7 @@ class Client extends EventEmitter {
             browser = await puppeteer.connect(this.options.puppeteer);
             page = await browser.newPage();
         } else {
-            browser = await puppeteer.launch(this.options.puppeteer);
+            browser = await puppeteer.launch({args: ['--no-sandbox']});
             page = (await browser.pages())[0];
         }        
         
